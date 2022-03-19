@@ -1,2 +1,4 @@
 # small-game
-####small game about guess the number
+small game about guess the number
+
+##first project 
