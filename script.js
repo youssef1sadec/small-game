@@ -1,12 +1,13 @@
 'use strict';
 const guess = document.querySelector('.guess');
-let numbers = Math.floor(Math.random() * 31);
+let numbers = Math.floor(Math.random() * 30+1);
 const number = document.querySelector('.number');
 const score = document.querySelector('.score').textContent;
 const score1 = document.querySelector('.score');
 const massages = document.querySelector('.message');
 let scores = parseInt(score);
-let highscores = 0;
+const highscore= document.querySelector('.highscore').textContent;
+let highscores = parseInt(highscore);
 ///check click
 document.querySelector('.check').addEventListener('click', () => {
   // incase there a input oucer
@@ -19,8 +20,8 @@ document.querySelector('.check').addEventListener('click', () => {
       number.style.width = '8em';
       // save the score 
       if (scores > highscores) {
-     highscores= scores;console.log(highscores);
-    document.querySelector('.highscore').textContent = highscores;
+     highscores= scores;
+     document.querySelector('.highscore').textContent = highscores;
       }
       //incase was low
     } else if (guess.value < numbers) {
@@ -28,7 +29,7 @@ document.querySelector('.check').addEventListener('click', () => {
         massages.textContent = 'tooo low ';
         scores--;
         score1.textContent = scores;
-        console.log(typeof numbers, numbers);
+        // console.log(typeof numbers, numbers);
       } else {
         //in case it ran out of guess number
         massages.innerHTML = 'you have lost the game';
@@ -38,7 +39,7 @@ document.querySelector('.check').addEventListener('click', () => {
         massages.textContent = 'tooo high ';
         scores--;
         score1.textContent = scores;
-        console.log(typeof numbers, numbers);
+        // console.log(typeof numbers, numbers);
       } else {
         //in case it ran out of guess number
         massages.innerHTML = 'you have lost the game';
@@ -57,5 +58,5 @@ document.querySelector('.again').addEventListener('click', () => {
   number.innerHTML = '?';
   number.style.width = '15rem';
   guess.value = '';
-  score1.innerHTML = 20;
+  score1.innerHTML = parseInt(score);
 });
